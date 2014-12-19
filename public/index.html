@@ -1,0 +1,43 @@
+<html ng-app="todoApp">
+  <head>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+
+  </head>
+  <body ng-controller="TodoController">
+  	
+  	<h3>JSON : {{a}}</h3> <hr>
+    <div>
+      <table border=1px style="width:600px;">
+      	<tr>
+      		
+	      	<th>NO.</th>
+	      	<th>ID</th>
+	      	<th>Subject</th>
+	      	<th>Credit</th>
+	      	<th>Grade</th>
+	      	<th>Tools</th>
+      	</tr>
+
+      	<tr ng-repeat="grade in a">
+	      	<td>{{$index+1}}</td>
+	      	<td><input ng-change="edit(grade)" type='text' ng-model='grade.no'></td>
+	      	<td><input ng-change="edit(grade)" type='text' ng-model='grade.subject'></td>
+	      	<td><input ng-change="edit(grade)" type='text' ng-model='grade.credit'></td>
+	      	<td><input ng-change="edit(grade)" type='text' ng-model='grade.grade'></td>
+	      	<td>
+	      		<button ng-click="delete(grade._id)">Del</button>
+	      		<button ng-click="edit(grade)">edit</button>
+	      	</td>    	
+	    </tr>
+      </table>	
+      <br>
+      <hr>
+      ID : <input type="text" ng-model="no"> <br><br>
+      Name : <input type="text" ng-model="subject"> <br><br>
+      Credit : <input type="text" ng-model="credit"> <br><br>
+      Grade : <input type="text" ng-model="grade"> <br><br>
+      <button ng-click="addSubject(no,subject,credit,grade)">Add</button>
+ </body>
+</html>
